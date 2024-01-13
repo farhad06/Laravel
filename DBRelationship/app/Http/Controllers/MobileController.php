@@ -13,4 +13,9 @@ class MobileController extends Controller
         $customer_name = Mobile::find($id)->customer;
         return $customer_name;
     }
+
+    public function hello()
+    {
+        return "Hello ! I am Farhad Ahamed";
+    }
 }
