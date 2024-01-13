@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Print-Page</title>
+    <style>
+        @media print {
+            @page {
+                margin: 0;
+            }
+        }
+        table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        }
+    </style>
+
+</head>
+<body>
+    <!-- This code print all the page contents -->
+    <div>
+        <h1>This is heading</h1>
+
+    </div>
+    <div id="para">   
+        <p style="text-align: justify;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae voluptatum corrupti eius, nemo id dicta consequatur et aperiam fugiat totam saepe beatae, vero sit, quibusdam consequuntur vel ea fugit voluptate ducimus. Corrupti fuga ad voluptatum aperiam aspernatur officia atque sit animi nihil ex. Minima ad quod ab sunt soluta! Temporibus voluptates sint nulla eveniet, earum, expedita animi deleniti impedit illo vel omnis unde eum autem aliquid facere saepe provident culpa nihil placeat dolores! Est illo dolor error vitae recusandae dolorum veritatis possimus autem, magnam labore dolorem, perferendis repellat? Tenetur iure in laudantium qui molestias commodi unde accusamus facere id voluptatum?</p>
+    </div>
+    <div id="table">
+        <h2>HTML Table</h2>
+        
+        <table>
+            <tr>
+                <th>Company</th>
+                <th>Contact</th>
+                <th>Country</th>
+            </tr>
+            <tr>
+                <td>Alfreds Futterkiste</td>
+                <td>Maria Anders</td>
+                <td>Germany</td>
+            </tr>
+            <tr>
+                <td>Centro comercial Moctezuma</td>
+                <td>Francisco Chang</td>
+                <td>Mexico</td>
+            </tr>
+            <tr>
+                <td>Ernst Handel</td>
+                <td>Roland Mendel</td>
+                <td>Austria</td>
+            </tr>
+            <tr>
+                <td>Island Trading</td>
+                <td>Helen Bennett</td>
+                <td>UK</td>
+            </tr>
+            <tr>
+                <td>Laughing Bacchus Winecellars</td>
+                <td>Yoshi Tannamuri</td>
+                <td>Canada</td>
+            </tr>
+            <tr>
+                <td>Magazzini Alimentari Riuniti</td>
+                <td>Giovanni Rovelli</td>
+                <td>Italy</td>
+            </tr>
+        </table>
+    </div>
+    <br>
+    <div>
+        <!-- <button onclick="window.print()">Print</button> -->
+        <button style="font-size: 20px;" onclick="printSection()">Print</button>
+    </div>
+    <script>
+        function printSection(){
+            var printableSection = document.querySelector('#table');
+            var printWindow = window.open('','_blank');
+            printWindow.document.write(printableSection.innerHTML);
+            printWindow.document.close();
+            printWindow.print();
+        }
+
+    </script>
+</body>
+</html>
