@@ -19,7 +19,13 @@ class MobileController extends Controller
         return "Hello ! I am Farhad Ahamed";
     }
 
-    public function git(){
+    public function git()
+    {
         echo "Hi ! I am Git";
+    }
+
+    public function hello_1()
+    {
+        return "OK";
     }
 }
