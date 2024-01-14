@@ -14,18 +14,5 @@ class MobileController extends Controller
         return $customer_name;
     }
 
-    public function hello()
-    {
-        return "Hello ! I am Farhad Ahamed";
-    }
 
-    public function git()
-    {
-        echo "Hi ! I am Git";
-    }
-
-    public function hello_1()
-    {
-        return "OK";
-    }
 }
