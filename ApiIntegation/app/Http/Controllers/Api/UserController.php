@@ -16,14 +16,14 @@ class UserController extends Controller
         $rules = [
             'name' => 'required|string|min:2|max:40',
             'email' => 'required|string|email|max:100',
-            'password' => 'required|string|min:6|confirmed',
-            'password_confirmation' => 'required|min:6'
+            'password' => 'required|string|min:6',
+            //'password_confirmation' => 'required|min:6'
         ];
 
         $validator = Validator::make($request->all(), $rules); //bind this rules for all requested input 
 
         if ($validator->fails()) {
-            return response()->json(['status' => false, $validator->errors()]);
+            return response()->json(['status' => false, 'error'=>$validator->errors()]);
         }
 
         $user = User::create([

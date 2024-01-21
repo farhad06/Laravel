@@ -5,15 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Register</title>
     <style>
-        #main {}
+        .err {
+            color: red;
+        }
     </style>
 </head>
 
 <body>
     <div id="main" align="center">
         <h2><u>Register Form</u></h2>
+        <h4 style="color:crimson" id="succMsg"></h4>
         <div id="form">
             <form id="reg-form">
                 <table>
@@ -63,12 +66,19 @@
                     data:data,
                     processData:false,
                     contentType:false,
+                    beforeSend:()=>{
+                        $('.err').text('');
+                    },
                     success:(data)=>{
-                        console.log(data.status);
                         if(data.status){
-                            console.log(data);
-                        }else if(data.status==false){
-                            printErrMsg(data)
+                            //alert(data.message)
+                            $('#succMsg').text(data.message);
+                            $('#reg-form').trigger('reset');
+                        }else{
+                        //print all error message for respective field 
+                          $.each(data.error,(key,val)=>{
+                            $('.'+key+'_err').text(val);
+                          });
                         }
                     },
                     error:(data)=>{
@@ -76,14 +86,6 @@
                     }
                 });
             });
-
-            function printErrMsg(err){
-                $('.err').text("");
-                $.each(err,function(index,value){
-                    console.log(err.index);
-                    $('.'+index+'_err').text(value);
-                });
-            }
         });
     </script>
 </body>
