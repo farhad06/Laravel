@@ -1,0 +1,29 @@
+li{
+    text-decoration: none;
+    color: red;
+    display: inline-block;
+}
+
+img{
+    border: 1px solid indianred;
+    height: 350px;
+    width: 550px;
+    border-radius: 0 25% 0 25%;
+}
+
+#box{
+    float: right;
+    border: 1px solid orangered;
+    height: 350px;
+    width: 550px;
+    border-radius: 25% 0 25% 0;
+    background-image: url(../images/bg_img.jpg);
+    background-size: cover;
+    /* overflow: hidden; */
+    text-overflow: ellipsis;
+}
+
+#box>article{
+    overflow:hidden;
+    font-family: 'Times New Roman', Times, serif;
+}
